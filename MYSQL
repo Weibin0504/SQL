@@ -1,0 +1,18 @@
+#按名字降序排列表格元素
+SELECT * FROM table ORDER BY name DESC;
+#选择id为11或22的数据
+SELECT name，price FROM table WHERE id=‘11’ OR id=‘22’；
+#选择价格和价格的五倍作为输出
+SELECT price 5*price AS time_price FROM table;
+#输出平均价格
+SELECT AVG(price) AS avg_price FROM table;
+#分组输出每个id的数量
+SELECT id COUNT(*) AS num_pro GROUP BY id；
+#分组输出id的数量大于2的，HAVING和WHERE很像，不过HAVING是过滤分组的，只有在使用GROUP BY是才可以使用HAVING
+SELECT id COUNT(*) AS num_pro GROUP BY id HAVING COUNT(*)>2;
+#语句输出次序
+SELECT->FROM->WHERE->GROUP BY->HAVING->ORDER BY
+#子查询
+(1).SELECT order_num FROM orderitems WHERE pro_id='01';
+(2).SELECT cust_id FROM oeders WHERE order_num IN(2007,2008);
+(1+2).SELECT cust_id FROM oeders WHERE order_num IN(SELECT order_num FROM orderitems WHERE pro_id='01');
